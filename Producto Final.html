@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El arte de ver mejor </title>
+  <style>
+    :root{--bg:#f7fafc;--card:#ffffff;--accent:#0b7285;--muted:#6b7280}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);margin:0;color:#0f172a}
+    .wrap{max-width:980px;margin:28px auto;padding:18px}
+    header{display:flex;align-items:center;gap:16px}
+    h1{margin:0;font-size:1.6rem}
+    .lead{color:var(--muted);margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    .card{background:var(--card);border-radius:12px;padding:16px;box-shadow:0 6px 18px rgba(11,18,24,0.06)}
+    .small{font-size:.9rem;color:var(--muted)}
+    button{background:var(--accent);color:white;border:0;padding:10px 14px;border-radius:8px;cursor:pointer}
+    input[type=range]{width:100%}
+    .demoImg{width:100%;height:220px;border-radius:8px;object-fit:cover;display:block}
+    .center{text-align:center}
+    .exercise{display:flex;flex-direction:column;gap:8px}
+    .danger{background:#fff4f4;border-left:4px solid #ff4d4f;padding:10px;border-radius:6px}
+    footer{margin-top:18px;color:var(--muted);font-size:.85rem}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden><circle cx="12" cy="12" r="10" fill="#0b7285"/><path d="M8 12c0-2 2-4 4-4s4 2 4 4-2 4-4 4-4-2-4-4z" fill="#fff"/></svg>
+      <div>
+        <h1>Método Bates — Información y ejercicios</h1>
+        <div class="lead">Página educativa que explica el Método Bates, muestra ejercicios interactivos y ofrece advertencias basadas en evidencia.</div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main class="card">
+        <h2>Resumen rápido</h2>
+        <p class="small">El <strong>Método Bates</strong> propone que la relajación y ejercicios oculares (palming, shifting, sunning) pueden mejorar la visión sin gafas. Esta página es un recurso informativo y experimental — NO reemplaza el diagnóstico ni tratamiento profesional.</p>
+
+        <section style="margin-top:12px">
+          <h3>¿Qué incluye esta página?</h3>
+          <ul class="small">
+            <li>Explicación breve del método.</li>
+            <li>Ejercicios interactivos: temporizador de "palming", ejercicio de "focus shift" y una simulación visual de desenfoque/claridad.</li>
+            <li>Cuestionario corto para evaluar comprensión.</li>
+            <li>Sección de riesgos y recomendaciones para consultar a un profesional.</li>
+          </ul>
+        </section>
+
+        <section style="margin-top:12px">
+          <h3>Ejercicios interactivos</h3>
+
+          <div class="card exercise">
+            <strong>1) Palming — temporizador</strong>
+            <div class="small">Cubre tus ojos con las palmas sin presionarlos. Usa el temporizador integrado.</div>
+            <div style="display:flex;gap:8px;margin-top:6px">
+              <input id="palmingTime" type="number" min="5" max="600" value="60" aria-label="Segundos palming" style="width:100px;padding:6px;border-radius:6px;border:1px solid #e5e7eb"/> <button id="startPalming">Iniciar</button>
+            </div>
+            <div id="palmingCountdown" class="center small" style="margin-top:8px">Esperando...</div>
+          </div>
+
+          <div style="height:12px"></div>
+
+          <div class="card exercise">
+            <strong>2) Focus shift (desenfoque & claridad)</strong>
+            <div class="small">Mueve el control para simular cuánto ves nítido o borroso. Esto es una simulación visual para enseñanza.</div>
+            <input id="focusRange" type="range" min="0" max="100" value="40"/>
+            <img id="demoVisual" src="https://uploads.onecompiler.io/43cd3qnf4/444fy7enn/metodo-bates-mejorar-la-vision-erescambio.jpg" alt="Simulación" class="demoImg"/>
+            <div class="small center">Arrastra el control para ajustar nitidez</div>
+          </div>
+
+        </section>
+
+        <section style="margin-top:12px">
+          <h3>Pequeño cuestionario</h3>
+          <div class="small">
+            <label>1) ¿El Método Bates tiene fuerte respaldo científico? </label>
+            <div style="margin-top:6px">
+              <button class="quizBtn" data-correct="false">Sí</button>
+              <button class="quizBtn" data-correct="true">No</button>
+            </div>
+            <div id="quizFeedback" class="small" style="margin-top:8px"></div>
+          </div>
+        </section>
+
+        <section style="margin-top:12px">
+          <h3>Advertencias importantes</h3>
+          <div class="danger small">
+            <strong>Importante:</strong> No abandones gafas o consultas médicas basándote solo en ejercicios. Algunos ejercicios (p. ej. exposición prolongada al sol) pueden ser peligrosos. Si tienes pérdida visual, dolor, flashes o visión doble, consulta un oftalmólogo. Esta página no reemplaza atención médica.
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="card">
+        <h3>Fuentes y evidencia (resumen)</h3>
+        <p class="small">Aquí encontrarás un resumen de la evidencia científica y dónde consultar más (AAO, revisiones sistemáticas y estudios recientes).</p>
+        <ul class="small">
+          <li>Revisiones médicas no han hallado evidencia consistente de que ejercicios cambien la refracción.</li>
+          <li>Algunos estudios controlados no muestran beneficio clínico.</li>
+          <li>Para controlar la progresión de miopía en niños existen otras intervenciones (p. ej. atropina, lentes orto-k) con evidencia.</li>
+        </ul>
+
+        <h4 style="margin-top:12px">Recursos</h4>
+        <p class="small">Consulta a tu oftalmólogo y revisa fuentes médicas confiables para decisiones clínicas.</p>
+
+        <div style="height:12px"></div>
+        <button id="showSources">Ver resumen de fuentes</button>
+        <div id="sourcesList" class="small" style="margin-top:8px;display:none"></div>
+      </aside>
+    </div>
+
+    <footer class="small">Creado como demo interactiva. Para uso educativo. No sustituye la consulta médica profesional.</footer>
+  </div>
+
+  <script>
+    // Palming timer
+    const startPalming = document.getElementById('startPalming');
+    const palmingTime = document.getElementById('palmingTime');
+    const palmingCountdown = document.getElementById('palmingCountdown');
+    let palTimer = null;
+    startPalming.addEventListener('click', ()=>{
+      clearInterval(palTimer);
+      let t = parseInt(palmingTime.value,10) || 60;
+      palmingCountdown.textContent = formatTime(t);
+      palTimer = setInterval(()=>{
+        t--;
+        palmingCountdown.textContent = formatTime(t);
+        if(t<=0){clearInterval(palTimer);palmingCountdown.textContent='Listo — abre los ojos despacio.'}
+      },1000)
+    });
+    function formatTime(s){const m=Math.floor(s/60);const sec=s%60;return `${m}:${sec.toString().padStart(2,'0')}`}
+
+    // Focus shift (simulate clarity via CSS filter)
+    const focusRange = document.getElementById('focusRange');
+    const demoVisual = document.getElementById('demoVisual');
+    focusRange.addEventListener('input', ()=>{
+      // value 0..100 => map to blur 8px..0px and contrast/saturate
+      const v = Number(focusRange.value);
+      const blur = (100-v)/12; // blur up to ~8
+      const contrast = 0.8 + (v/200);
+      demoVisual.style.filter = `blur(${blur}px) contrast(${contrast})`;
+    });
+    // Initialize
+    focusRange.dispatchEvent(new Event('input'));
+
+    // Quiz
+    const quizBtns = document.querySelectorAll('.quizBtn');
+    const quizFeedback = document.getElementById('quizFeedback');
+    quizBtns.forEach(b=>b.addEventListener('click', ()=>{
+      const correct = b.dataset.correct === 'true';
+      quizFeedback.textContent = correct ? 'Correcto — la evidencia científica actual no apoya que el método cambie la refracción de forma probada.' : 'Incorrecto — la evidencia no es favorable.'
+    }));
+
+    // Sources reveal
+    const showSources = document.getElementById('showSources');
+    const sourcesList = document.getElementById('sourcesList');
+    showSources.addEventListener('click', ()=>{
+      if(sourcesList.style.display==='none'){
+        sourcesList.style.display='block';
+        sourcesList.innerHTML = '<ol><li>American Academy of Ophthalmology — revisión sobre entrenamiento visual y errores refractivos (resumen).</li><li>Estudios clínicos controlados y revisiones sistemáticas que no mostraron efecto clínico consistente del método.</li><li>Recomendación general: consulta siempre con profesionales y no abandone gafas sin supervisión.</li></ol>';
+        showSources.textContent='Ocultar fuentes';
+      } else {sourcesList.style.display='none';showSources.textContent='Ver resumen de fuentes'}
+    });
+
+  </script>
+</body>
+</html>
